@@ -18,6 +18,7 @@ local math_random = math.random
 local math_atan2 = math.atan2 or math.atan
 local math_sqrt = math.sqrt
 local math_abs = math.abs
+local math_mod = math.mod
 
 local noop = function()
 end
@@ -73,6 +74,33 @@ end
 function lume.round(x, increment)
   if increment then return lume.round(x / increment) * increment end
   return x >= 0 and math_floor(x + .5) or math_ceil(x - .5)
+end
+
+
+local gcd2 = function(m, n)
+  while m ~= 0 do
+      m, n = math_mod(n, m), m
+  end
+  return n
+end
+
+function lume.gcd(...)
+  local args = {...}
+  if #args == 1 then return unpack(args)
+  elseif #args == 2 then return gcd2(unpack(args))
+  else return lume.reduce(args, gcd2) end
+end
+
+
+local lcm2 = function(m, n)
+  return (m ~= 0 and n ~= 0) and math_abs(m * n / lume.gcd(m, n)) or 0
+end
+
+function lume.lcm(...)
+  local args = {...}
+  if #args == 1 then return unpack(args)
+  elseif #args == 2 then return lcm2(unpack(args))
+  else return lume.reduce(args, lcm2) end
 end
 
 

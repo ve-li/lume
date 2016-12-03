@@ -27,6 +27,20 @@ lume.round(2.3) -- Returns 2
 lume.round(123.4567, .1) -- Returns 123.5
 ```
 
+### lume.gcd(...)
+Returnes greatest common divisor of one or more numbers.
+```lua
+lume.gcd(24, 16) -- Returns 8
+lume.gcd(16, 24, 4) -- Returns 4
+```
+
+### lume.lcm(...)
+Returnes least common multiple of one or more numbers.
+```lua
+lume.lcm(2,   8) -- Returns 8
+lume.lcm(15,  20) -- Returns 60
+```
+
 ### lume.sign(x)
 Returns `1` if `x` is 0 or above, returns `-1` when `x` is negative.
 

@@ -29,6 +29,31 @@ tests["lume.round"] = function()
   testeq( lume.round(0),            0       )
 end
 
+-- lume.gcd
+tests["lume.gcd"] = function()
+  testeq( lume.gcd(24, 16),      8   )   
+  testeq( lume.gcd(16, 24),      8   )
+  testeq( lume.gcd(16, 16),      16  )
+  testeq( lume.gcd(13, 29),      1   )
+  testeq( lume.gcd(16, 24, 4),   4   )
+  testeq( lume.gcd(14, 21, 28),  7   )
+end
+
+-- lume.lcm
+tests["lume.lcm"] = function()
+  testeq( lume.lcm(6,   4),         12   )
+  testeq( lume.lcm(6,  -4),         12   )
+  testeq( lume.lcm(-6, -4),         12   )
+  testeq( lume.lcm(2,   8),         8    )
+  testeq( lume.lcm(15,  20),        60   )
+  testeq( lume.lcm(20,  15),        60   )
+  testeq( lume.lcm(35, -21),        105  )
+  testeq( lume.lcm(48,  18),        144  )
+  testeq( lume.lcm(25,  -35,  95),  3325 )
+  testeq( lume.lcm(95,  -35,  25),  3325 )
+end
+
+
 -- lume.sign
 tests["lume.sign"] = function()
   testeq( lume.sign(-10),  -1 )
