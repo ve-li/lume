@@ -55,6 +55,16 @@ lume.lerp(100, 200, .5) -- Returns 150
 Similar to `lume.lerp()` but uses cubic interpolation instead of linear
 interpolation.
 
+### lume.remap(minA, maxA, minB, maxB, amount)
+Returns result of lineary mapping `amount` from range A to range B; the `amount`
+value divides the A range in same ratio as returned value divides the B range.
+```lua
+lume.remap(0, 2, 100, 200, 1)  -- Returns 150
+-- To convert from Fahrenheit to Celsius, we just need to take any two points
+-- from conversion table, for example 5 F and 14 F:
+lume.remap(5, 14, -15, -10, 500) -- Returns 260
+```
+
 ### lume.pingpong(x)
 Ping-pongs the number `x` between 0 and 1.
 

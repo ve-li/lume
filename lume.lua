@@ -113,13 +113,15 @@ function lume.lerp(a, b, amount)
   return a + (b - a) * lume.clamp(amount, 0, 1)
 end
 
-
 function lume.smooth(a, b, amount)
   local t = lume.clamp(amount, 0, 1)
   local m = t * t * (3 - 2 * t)
   return a + (b - a) * m
 end
 
+function lume.remap(minA, maxA, minB, maxB, amount)
+  return minB + (amount - minA) * (maxB - minB) / (maxA - minA) 
+end
 
 function lume.pingpong(x)
   return 1 - math_abs(1 - x % 2)

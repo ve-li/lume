@@ -78,6 +78,14 @@ tests["lume.smooth"] = function()
   testeq( lume.smooth(100, 200, -2),  100  )
 end
 
+-- lume.remap
+tests["lume.remap"] = function()
+  testeq( lume.remap(10, 20, 100, 200,  15  ),    150  )
+  testeq( lume.remap(10, 20, 100, 200,  12.5),    125  )
+  testeq( lume.remap(10, 20, 100, 200,  30  ),    300  )
+  testeq( lume.remap(10, 20, 100, 200, -10  ),   -100  )
+end
+
 -- lume.pingpong
 tests["lume.pingpong"] = function()
   testeq( lume.pingpong(0),     0   )
